@@ -7,6 +7,14 @@ terraform {
   }
 
   required_version = ">= 1.2.0"
+
+  backend "s3" {
+        bucket = "tf-test-buck"  # Replace with your bucket name
+        key    = "aws-terraform/terraform.tfstate"  # Replace with your desired path
+        region = "us-east-2"  # Replace with your AWS region
+        # dynamodb_table = "your-dynamodb-table-name"  # Optional: For state locking
+        # encrypt = true # Optional: Enable encryption
+      }
 }
 
 provider "aws" {
@@ -33,3 +41,4 @@ resource "aws_s3_bucket" "statefiletest" {
     Environment = "Dev"
   }
 }
+
