@@ -25,8 +25,8 @@ resource "aws_instance" "ashok_app" {
 }
 
 
-resource "aws_s3_bucket" "example" {
-  bucket = "my-test-bucket"
+resource "aws_s3_bucket" "statefiletest" {
+  bucket = "tf-test-buck"
 
   tags = {
     Name        = "My bucket"
